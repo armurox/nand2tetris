@@ -14,7 +14,6 @@ CHIP Mux4Way16 {
     
     PARTS:
     Mux16(a=a, b=b, sel=sel[0], out=tempout1);
-    And(a=sel[0], b=sel[1], out=tempsel);
-    Mux16(a=c, b=d, sel=tempsel, out=tempout2);
+    Mux16(a=c, b=d, sel=sel[0], out=tempout2);
     Mux16(a=tempout1, b=tempout2, sel=sel[1], out=out);
 }
