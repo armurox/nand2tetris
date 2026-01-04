@@ -21,4 +21,3 @@ CHIP DMux8Way {
     DMux4Way(in=tempdmux1, sel=sel[0..1], a=a, b=b, c=c, d=d);
     DMux4Way(in=tempdmux2, sel=sel[0..1], a=e, b=f, c=g, d=h);
 }
-
