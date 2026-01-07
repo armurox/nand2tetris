@@ -1,0 +1,13 @@
+/**
+ * 16-bit ZXer:
+ * out = 0 if in = 1 else out = in
+ */
+CHIP ZXer16 {
+    IN in[16], sel;
+    OUT out[16];
+
+    PARTS:
+    DMux16(in=in, sel=sel, a=dmux1, b=dmux2);
+    Zeroer16(in=dmux2, out=zeroer1);
+    Mux16(a=dmux1 , b=zeroer1 , sel=sel , out=out);
+}
