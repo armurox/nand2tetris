@@ -1,0 +1,15 @@
+/**
+ * 16-bit AddOrAnd:
+ * out = x + y if sel = 1 else out = x & y.
+ */
+CHIP AddOrAnd16 {
+    IN x[16], y[16], sel;
+    OUT out[16];
+
+    PARTS:
+    DMux16(in=x, sel=sel, a=dmuxa1, b=dmuxb1);
+    DMux16(in=y, sel=sel, a=dmuxa2, b=dmuxb2);
+    And16(a=dmuxa1 , b=dmuxa2 , out=and1);
+    Add16(a=dmuxb1 , b=dmuxb2 , out=add1);
+    Mux16(a=and1, b=add1, sel=sel, out=out);
+}
