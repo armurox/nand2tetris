@@ -1,0 +1,18 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+/**
+ * 16-bit IsZero gate:
+ * for every bit, if in[i] = 0 then out = 1 else out = 0
+ */
+CHIP IsZero16 {
+    IN in[16];
+    OUT out;
+
+    PARTS:
+    Or16(a=in , b=in , out[0..7]=tempout1, out[8..15]=tempout2);
+    Or8Way(in=tempout1 , out=tempout3);
+    Or8Way(in=tempout2, out=tempout4);
+    Or(a=tempout3, b=tempout4 , out=tempout5);
+    Not(in=tempout5, out=out);
+}
