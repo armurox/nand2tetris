@@ -1,0 +1,13 @@
+/**
+ * 16-bit Zeroer:
+ * out = 0
+ */
+CHIP Zeroer16 {
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+    Not16(in=in, out=not1);
+    Add16(a=in , b=not1 , out=add1);
+    Add16(a=add1 , b[0]=true, b[1..15]=false, out=out);
+}
