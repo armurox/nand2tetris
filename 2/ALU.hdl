@@ -45,7 +45,7 @@ CHIP ALU {
     NXer16(in=zxer1, sel=nx, out=nxer1);
 
     // y sequence
-    ZXer16(in=x, sel=zy, out=zxer2);
+    ZXer16(in=y, sel=zy, out=zxer2);
     NXer16(in=zxer2, sel=ny, out=nxer2);
 
     // Aggregation (add or and)
