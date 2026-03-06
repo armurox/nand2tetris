@@ -11,7 +11,7 @@ CHIP IsZero16 {
 
     PARTS:
     And16(a=in , b=in , out[0..7]=tempout1, out[8..15]=tempout2);
-    Or8Way(in=tempout1 , out=tempout3);
+    Or8Way(in=tempout1 , out=tempout3);  // Reusing previously made chips here, otherwise would use Or16Way
     Or8Way(in=tempout2, out=tempout4);
     Or(a=tempout3, b=tempout4 , out=tempout5);
     Not(in=tempout5, out=out);
