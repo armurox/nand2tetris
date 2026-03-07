@@ -13,5 +13,10 @@ CHIP PC {
     OUT out[16];
     
     PARTS:
-    //// Replace this comment with your code.
+    Register(in=in , load=load , out=b );
+    Inc16(in=in , out=tempc);
+    Register(in=tempc,load=load, out=c);
+    Zeroer16(in=in, out=e);
+    Mux8Way16(a=in , b=b , c=c , d=in , e=e , f=in , g=in , h=in ,
+    sel[0]=load,sel[1]=inc,sel[2]=reset, out=out );
 }
